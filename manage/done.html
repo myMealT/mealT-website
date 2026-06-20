@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All done — mealT</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .portal-page {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .portal-icon { font-size: 3rem; margin-bottom: 20px; }
+    .portal-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--gray-900);
+      letter-spacing: -.02em;
+      margin-bottom: 12px;
+    }
+    .portal-sub {
+      font-size: 1rem;
+      color: var(--gray-500);
+      max-width: 360px;
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--gray-900);
+      margin-bottom: 40px;
+      justify-content: center;
+    }
+    .logo-row span:first-child { font-size: 1.4rem; }
+  </style>
+</head>
+<body>
+  <div class="portal-page">
+    <div class="logo-row">
+      <span>🍽️</span><span>mealT</span>
+    </div>
+
+    <div class="portal-icon">✅</div>
+    <p class="portal-title">All done</p>
+    <p class="portal-sub">
+      Your subscription changes have been saved. Head back to the app — your status will update automatically.
+    </p>
+    <a href="mealt://subscription/manage-done" class="btn btn-primary">Back to mealT</a>
+  </div>
+
+  <script>
+    setTimeout(function () {
+      window.location.href = 'mealt://subscription/manage-done';
+    }, 300);
+  </script>
+</body>
+</html>

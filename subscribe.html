@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mealT Premium</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .portal-page {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .portal-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .portal-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--gray-900);
+      letter-spacing: -.02em;
+      margin-bottom: 10px;
+    }
+    .portal-sub {
+      font-size: 1rem;
+      color: var(--gray-500);
+      max-width: 360px;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid var(--gray-200);
+      border-top-color: var(--orange);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      margin: 0 auto 20px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .state { display: none; }
+    .state.active { display: block; }
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--gray-900);
+      margin-bottom: 40px;
+      justify-content: center;
+    }
+    .logo-row span:first-child { font-size: 1.4rem; }
+  </style>
+</head>
+<body>
+  <div class="portal-page">
+    <div class="logo-row">
+      <span>🍽️</span><span>mealT</span>
+    </div>
+
+    <!-- Loading state -->
+    <div id="stateLoading" class="state active">
+      <div class="spinner"></div>
+      <p class="portal-sub">Setting up your subscription…</p>
+    </div>
+
+    <!-- Error state -->
+    <div id="stateError" class="state">
+      <div class="portal-icon">😕</div>
+      <p class="portal-title">Something went wrong</p>
+      <p class="portal-sub" id="errorMsg">We couldn't start the checkout. Please go back to the app and try again.</p>
+      <a href="mealt://subscription/cancel" class="btn btn-primary">Back to mealT</a>
+    </div>
+  </div>
+
+  <script>
+    const API = 'https://tbe-mp-bb0eaace2ee0.herokuapp.com';
+
+    function show(id) {
+      document.querySelectorAll('.state').forEach(el => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    async function init() {
+      const params = new URLSearchParams(window.location.search);
+      const token = params.get('t');
+
+      if (!token) {
+        show('stateError');
+        return;
+      }
+
+      try {
+        const res = await fetch(`${API}/subscriptions/create-checkout`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token }),
+        });
+        const data = await res.json();
+
+        if (!res.ok || !data.url) {
+          document.getElementById('errorMsg').textContent =
+            data.error === 'payments_not_configured'
+              ? 'Subscriptions are not yet available. Please try again later.'
+              : 'We couldn\'t start the checkout. Please go back to the app and try again.';
+          show('stateError');
+          return;
+        }
+
+        window.location.href = data.url;
+      } catch {
+        show('stateError');
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
