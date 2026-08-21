@@ -467,3 +467,7 @@ img { display: block; max-width: 100%; }
 
 /* App petal logo mark (nav + footer + portal) */
 .logo-img { width: 28px; height: 28px; border-radius: 7px; display: inline-block; vertical-align: middle; object-fit: cover; }
+
+/* Platform-aware store emphasis (set by app.js on mobile visitors) */
+.store-btn-secondary { opacity: 0.55; transform: scale(0.92); }
+.store-btn-primary { box-shadow: 0 4px 18px rgba(224, 123, 42, 0.35); }

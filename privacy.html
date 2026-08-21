@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!-- DRAFT — do NOT publish until every <mark> placeholder is filled and legal review is complete.
+     Internal drafting notes are kept as [ATTORNEY REVIEW] HTML comments (not rendered). -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -38,70 +40,162 @@
   <!-- Privacy Content -->
   <main class="legal-page">
     <div class="container container-narrow">
+      <!-- Remove this banner before publishing. -->
+      <p style="background:#fff3cd;border:1px solid #e0c060;padding:10px 14px;border-radius:8px;font-size:0.9em;">
+        <strong>Draft pending legal review.</strong> Highlighted <mark>[fields]</mark> must be completed before publication.
+      </p>
+
       <h1>Privacy Policy</h1>
-      <p class="legal-date">Last updated: June 2025</p>
+      <p class="legal-date">Last updated: <mark>[Insert Date]</mark></p>
 
-      <p>mymealT is operated by Emperor Technologies LLC, a California limited liability company ("we", "our", "us"). We are committed to protecting your privacy. This policy explains what information we collect, how we use it, and your rights regarding your data.</p>
+      <p><strong>Emperor Technologies LLC</strong>, a California limited liability company ("Company", "mymealT", "we", "us", or "our"), is committed to protecting your privacy. This Privacy Policy ("Policy") describes how we collect, use, store, share, transfer, and otherwise process your personal data when you use our website, mobile application, or other products and services (collectively, the "Services"), and explains your rights under applicable law.</p>
+      <p>This Policy should be read together with our <a href="terms.html">Terms and Conditions</a>. By using the Services or providing your personal data, you acknowledge you have read and understood this Policy. Depending on where you live, different laws apply: <strong>US residents</strong> should read Section 16A (US Privacy Rights); <strong>Indian residents</strong> are covered by the provisions implementing India's Digital Personal Data Protection Act, 2023 ("DPDPA"), the Information Technology Act, 2000, and rules thereunder.</p>
 
-      <h2>1. Information We Collect</h2>
-      <h3>Information you provide</h3>
+      <h2>1. Definitions</h2>
       <ul>
-        <li><strong>Phone number</strong> — used to create and verify your account via one-time passcode (OTP). We do not use your phone number for marketing.</li>
-        <li><strong>Profile information</strong> — name, date of birth, height, weight, and fitness goals that you voluntarily enter to personalise calorie targets.</li>
-        <li><strong>Meal logs</strong> — foods, photos, and nutritional data you record in the app.</li>
-        <li><strong>Messages</strong> — feedback or contact messages you send us through the app or website.</li>
-      </ul>
-      <h3>Information collected automatically</h3>
-      <ul>
-        <li><strong>Device identifiers</strong> — Firebase Cloud Messaging token for push notifications.</li>
-        <li><strong>Usage data</strong> — crash reports and analytics via Firebase Crashlytics and Google Analytics, used to fix bugs and improve the app. No personally identifiable information is included in these reports.</li>
-        <li><strong>Health data</strong> — if you grant permission, we read steps, weight, and other metrics from Apple Health / Google Fit. This data is stored on your device and our servers only to power your in-app trends; it is never sold or shared.</li>
+        <li><strong>"Personal Data" / "Personal Information"</strong> means any data about an identifiable individual, as defined under applicable law (including the DPDPA and US state privacy laws).</li>
+        <li><strong>"Data Fiduciary" / "Controller"</strong> means Emperor Technologies LLC, which determines the purpose and means of processing.</li>
+        <li><strong>"Data Principal" / "Consumer"</strong> means the individual to whom the Personal Data relates.</li>
+        <li><strong>"Processing"</strong> means any operation performed on Personal Data, automated or not, including collection, storage, use, disclosure, sharing, transfer, adaptation, restriction, erasure, or destruction.</li>
+        <li><strong>"Consent"</strong> means a freely given, specific, informed, unambiguous indication of agreement through a clear affirmative action.</li>
+        <li><strong>"Sensitive Personal Data"</strong> means data revealing physical, physiological, or mental health information, and other categories treated as sensitive under applicable law.</li>
+        <li><strong>"Services"</strong> means the website, mobile application, and any products or features offered by mymealT.</li>
+        <li><strong>"Third-Party Service Provider"</strong> means any third party engaged to provide services in connection with the Services.</li>
       </ul>
 
-      <h2>2. How We Use Your Information</h2>
+      <h2>2. Personal Data We Collect</h2>
+      <h3>2.1 Information You Provide</h3>
       <ul>
-        <li>Provide and improve the mymealT service.</li>
-        <li>Send streak reminders and weekly summaries via push notification (you can disable these in device settings).</li>
-        <li>Respond to your support or feedback messages.</li>
-        <li>Detect and prevent abuse or fraud.</li>
+        <li>Phone number — used to create and verify your account via OTP. We do not use it for marketing.</li>
+        <li>Profile information — name, date of birth, height, weight, and fitness goals, provided voluntarily to personalise calorie targets.</li>
+        <li>Meal logs — foods, photographs, and nutritional data you record.</li>
+        <li>Messages — feedback, enquiries, or communications you send us.</li>
+        <li>Any other Personal Data you voluntarily provide.</li>
       </ul>
-      <p>We do <strong>not</strong> sell your personal data to third parties. We do not use your meal logs or health data for advertising.</p>
-
-      <h2>3. Data Sharing</h2>
-      <p>We share your data only with the following service providers, solely to operate mymealT:</p>
+      <h3>2.2 Information Collected Automatically</h3>
       <ul>
-        <li><strong>Heroku (Salesforce)</strong> — cloud infrastructure and database hosting.</li>
-        <li><strong>Twilio</strong> — OTP SMS delivery. Your phone number is transmitted to Twilio only to send the verification code.</li>
-        <li><strong>Cloudinary</strong> — meal photo storage and CDN.</li>
-        <li><strong>Anthropic</strong> — AI analysis of meal photos. Photos are processed transiently and are not used to train AI models.</li>
-        <li><strong>Google Firebase</strong> — push notifications and crash reporting.</li>
+        <li>Device identifiers, including your Firebase Cloud Messaging token, for push notifications.</li>
+        <li>IP address, browser type, operating system, device information, and similar technical data.</li>
+        <li>Usage data, crash reports, and analytics via Firebase Crashlytics and Google Analytics, to fix bugs and improve the app. These do not intentionally include personally identifiable information.</li>
+        <li>Cookies and similar technologies, as described in Section 10.</li>
       </ul>
+      <h3>2.3 Health and Wellness Data</h3>
+      <!-- [ATTORNEY REVIEW — US health data] Confirm whether a separate consumer-health-data notice/consent is required for US users (e.g. Washington My Health My Data Act, Nevada SB370). -->
+      <p>Subject to your explicit Consent and device permissions, we read step count, weight, and other metrics from Apple Health / Google Fit. This data is stored on your device and our servers solely to power in-app trends, progress tracking, and personalised insights — it is <strong>never sold or shared for advertising or marketing</strong>. We treat it as Sensitive Personal Data and process it only as described in Section 9.</p>
 
-      <h2>4. Data Retention</h2>
-      <p>We retain your account data for as long as your account is active. If you delete your account, your personal data is removed within 30 days. Meal logs and health metrics are deleted immediately on account deletion. Anonymised aggregate statistics may be retained indefinitely.</p>
+      <h2>3. Sources of Personal Data</h2>
+      <p>3.1 We collect Personal Data (a) directly from you (account creation/verification, profile setup, meal logging, granting health-app permissions, contacting us); (b) automatically (cookies, SDKs, analytics, crash-reporting) as you use the Services; and (c) from third parties where you connect services such as Apple Health or Google Fit, subject to device permissions.</p>
+      <p>3.2 You may decline to provide certain Personal Data, though this may limit features. Where required by law, we process Personal Data only with your Consent or another lawful basis.</p>
 
-      <h2>5. Your Rights</h2>
-      <p>Depending on where you live, you may have the right to:</p>
+      <h2>4. How We Use Your Personal Data</h2>
+      <p>4.1 We process Personal Data only for legitimate purposes connected with providing and improving the Services, including to:</p>
       <ul>
-        <li>Access a copy of the personal data we hold about you.</li>
-        <li>Correct inaccurate data.</li>
-        <li>Request deletion of your data (account deletion is available in-app under Settings → Delete Account).</li>
-        <li>Object to or restrict certain processing.</li>
-        <li>Data portability.</li>
+        <li>create, verify, and manage your account (including via OTP);</li>
+        <li>provide, operate, and improve the Services, including personalising calorie targets, recommendations, and health insights;</li>
+        <li>record and analyse meal logs and health/wellness data for in-app trends and progress tracking;</li>
+        <li>process meal photographs using AI to identify foods and estimate nutrition (photographs processed for this purpose are <strong>not used to train AI models</strong>);</li>
+        <li>send service-related communications (verification, streak reminders, weekly summaries — you can disable push notifications in device settings);</li>
+        <li>respond to enquiries, feedback, and support requests;</li>
+        <li>monitor and improve performance, security, and reliability;</li>
+        <li>detect, investigate, and prevent fraud or misuse; and</li>
+        <li>comply with applicable law and lawful requests.</li>
       </ul>
-      <p>To exercise any of these rights, <a href="index.html#contact">contact us</a>.</p>
+      <p>We do <strong>not</strong> sell your Personal Data. We do <strong>not</strong> use your meal logs or health/wellness data for advertising or marketing.</p>
 
-      <h2>6. Security</h2>
-      <p>All data is transmitted over HTTPS. Passwords and tokens are hashed. OTP codes are hashed with PBKDF2 before storage. We use industry-standard practices to protect your data, but no system is completely secure.</p>
+      <h2>5. Sharing of Personal Data</h2>
+      <p>5.1 We do not sell, rent, or trade your Personal Data. We share it only where necessary to provide the Services, where you consent, or where permitted or required by law:</p>
+      <ul>
+        <li><strong>Service Providers</strong> — trusted Third-Party Service Providers who help operate the Services (Section 6), limited to what their role requires.</li>
+        <li><strong>Legal and Regulatory Authorities</strong> — to comply with law, court orders, or lawful government requests.</li>
+        <li><strong>Business Transfers</strong> — in a merger, acquisition, or sale of assets, subject to applicable law and safeguards.</li>
+        <li><strong>With Your Consent</strong> — to any party you authorise.</li>
+      </ul>
+      <p>We require recipients to process Personal Data only for the shared purpose, keep it confidential, and apply appropriate security.</p>
 
-      <h2>7. Children</h2>
-      <p>mymealT is not directed at children under 13. We do not knowingly collect data from anyone under 13. If you believe a child has provided us with personal information, please contact us and we will delete it.</p>
+      <h2>6. Third-Party Service Providers</h2>
+      <p>6.1 We currently engage the following categories, each processing Personal Data only as necessary:</p>
+      <ul>
+        <li><strong>Heroku (Salesforce)</strong> — cloud infrastructure, application hosting, and database services.</li>
+        <li><strong>Twilio</strong> — OTP SMS delivery for account verification (your phone number is shared solely for this).</li>
+        <li><strong>Cloudinary</strong> — storage and delivery of meal photographs.</li>
+        <li><strong>Anthropic</strong> — AI analysis of meal photographs to identify foods and estimate nutrition (processed transiently; not used to train AI models).</li>
+        <li><strong>Google Firebase</strong> — push notifications, crash reporting (Crashlytics), and analytics.</li>
+        <li><strong>Google Analytics</strong> — aggregated usage and performance information (not intentionally used to collect PII).</li>
+      </ul>
+      <p>6.2 We may add, replace, or remove providers as our needs evolve; any new provider will process Personal Data only as described here. Our Services may link to third-party websites we do not control; review their policies separately.</p>
 
-      <h2>8. Changes to This Policy</h2>
-      <p>We may update this policy from time to time. We will notify you of material changes via a push notification or in-app notice. The "Last updated" date at the top of this page reflects the most recent revision.</p>
+      <h2>7. Cross-Border Transfer of Personal Data</h2>
+      <p>7.1 We are a US company and some Third-Party Service Providers process data on servers outside your country, including in the United States. <strong>For Indian residents:</strong> Section 16 of the DPDPA permits transfer of Personal Data outside India except to jurisdictions restricted by the Central Government; we do not currently transfer to any restricted jurisdiction.</p>
+      <p>7.2 Independent of what applicable law strictly requires, we seek reasonable contractual and technical safeguards from providers processing Personal Data across borders so it continues to be handled consistently with this Policy. By using the Services, you acknowledge your Personal Data may be processed outside your country as described.</p>
 
-      <h2>9. Contact Us</h2>
-      <p>Questions about this policy? <a href="index.html#contact">Send us a message</a> or email us at <a href="mailto:info@mymealt.com">info@mymealt.com</a>.</p>
+      <h2>8. Your Rights and Control Over Your Personal Data</h2>
+      <p>Subject to applicable law, you may:</p>
+      <ul>
+        <li>access information about how your Personal Data is processed;</li>
+        <li>request correction, completion, updating, or erasure;</li>
+        <li>withdraw Consent at any time (Section 18); withdrawal does not affect prior lawful processing;</li>
+        <li>seek grievance redressal (Section 17); and</li>
+        <li>delete your account via Settings → Delete Account; data is then handled per Section 11 (Retention).</li>
+      </ul>
+      <p>8.1 We may require identity verification before acting on a request and may decline or limit a request where permitted by law (e.g. where it would adversely affect another person's rights or where retention is legally required).</p>
+      <p>8.2 <strong>Right to Nominate (India).</strong> Under Section 14 of the DPDPA, you may nominate another individual to exercise your rights in the event of death or incapacity, by contacting us (Section 18).</p>
+      <p>8.3 <strong>US residents:</strong> additional rights are described in Section 16A.</p>
+
+      <h2>9. Sensitive Personal Data and Explicit Consent</h2>
+      <p>Certain data (weight, height, step count, and other health/wellness metrics) may be Sensitive Personal Data. We process it only on the basis of your <strong>explicit Consent</strong>, obtained when you grant the relevant device/app permission. You may withdraw Consent by revoking the permission in device settings or deleting your account; this may limit features that depend on that data. We do not share Sensitive Personal Data for marketing or advertising.</p>
+
+      <h2>10. Cookies and Similar Tracking Technologies</h2>
+      <p>Our mobile application does not use browser cookies; it relies on the device identifiers, SDKs, and analytics tools in Section 2.2. Our website may use cookies and similar technologies to keep you signed in, remember preferences, and understand aggregate usage (e.g. Google Analytics). You can control cookies through your browser; disabling them may affect website functionality but not the mobile application.</p>
+
+      <h2>11. Retention of Personal Data</h2>
+      <p>We retain account data while your account is active. If you delete your account, your Personal Data is removed within <strong>30 days</strong>, unless a longer period is required or permitted by law. Meal logs and health metrics are deleted immediately on account deletion, subject to any legal retention requirement. We may retain anonymised, aggregated statistics that do not identify you indefinitely.</p>
+
+      <h2>12. Security of Personal Data</h2>
+      <p>12.1 We implement reasonable technical, organisational, and administrative measures to protect Personal Data, including:</p>
+      <ul>
+        <li>all data transmitted over encrypted HTTPS connections;</li>
+        <li>passwords and authentication tokens hashed before storage;</li>
+        <li>OTP codes hashed using PBKDF2 before storage.</li>
+      </ul>
+      <p>12.2 You are responsible for keeping your login credentials confidential and notifying us of unauthorised use. No transmission or storage method is completely secure. If we become aware of a Personal Data breach requiring notification under applicable law, we will take appropriate steps, including notifying affected users and authorities where required.</p>
+
+      <h2>13. Children's Privacy and Use on Behalf of Another Person</h2>
+      <!-- [ATTORNEY REVIEW — US] US COPPA applies to children under 13; the 18+ threshold is stricter. Confirm app-store age ratings and consent flows are consistent. -->
+      <p>13.1 The Services are <strong>not directed to or intended for children under 18</strong>. We do not knowingly process a child's Personal Data without verifiable parental/guardian consent where required by law. If we learn we have inadvertently collected a child's Personal Data without required consent, we will take reasonable steps to delete it or otherwise comply with law.</p>
+      <p>13.2 If you use the Services on behalf of another individual (e.g. as a parent/guardian), you represent you are authorised to provide that individual's Personal Data under this Policy.</p>
+
+      <h2>14. Marketing Communications and Opt-Out</h2>
+      <p>We may send service-related communications necessary to operate the Services (verification, security notices) — these are not marketing and cannot be opted out of while your account is active. Where you have consented, we may send push notifications (streak reminders, weekly summaries); disable them anytime in device settings. We do not use your phone number for marketing and do not sell Personal Data for advertising. If we introduce promotional communications, you will be able to opt out via the unsubscribe instructions or by contacting us.</p>
+
+      <h2>15. Changes to This Policy</h2>
+      <p>We may update this Policy to reflect changes in our practices, the Services, or applicable law. We will notify you of material changes via push notification, in-app notice, or other method required by law. The "Last Updated" date reflects the most recent revision. Continued use after a revised Policy takes effect constitutes acceptance, to the extent permitted by law.</p>
+
+      <h2>16. Governing Law and Jurisdiction</h2>
+      <p>16.1 For <strong>US residents</strong>, this Policy and any dispute regarding our processing of your Personal Data are governed by the laws of the State of California, United States, and the courts located in California have jurisdiction, subject to any non-waivable rights under your state's law.</p>
+      <p>16.2 For <strong>Indian residents</strong>, this Policy is governed by the laws of India, and, subject to applicable law, the courts at Hyderabad, Telangana, India have jurisdiction over disputes concerning our processing of your Personal Data.</p>
+
+      <h2>16A. US Privacy Rights (CCPA / CPRA and similar state laws)</h2>
+      <!-- [ATTORNEY REVIEW — US addition] Confirm CCPA/CPRA categories, disclosures, and request-handling process. -->
+      <p>16A.1 <strong>Categories collected.</strong> In the past 12 months we have collected: identifiers (phone number, device identifiers, IP address); customer records (name, height, weight); health/wellness information (with consent); internet/usage activity; and inferences for personalisation. Sources and purposes are described in Sections 2–4.</p>
+      <p>16A.2 <strong>No sale or sharing.</strong> We do <strong>not</strong> sell your Personal Information and do <strong>not</strong> share it for cross-context behavioural advertising, as those terms are defined under California law. We have not done so in the preceding 12 months, including for consumers under 16.</p>
+      <p>16A.3 <strong>Your rights.</strong> Subject to applicable law, US residents may request to: know/access the Personal Information we collect and how it is used; delete it; correct it; and be free from discrimination for exercising these rights.</p>
+      <p>16A.4 <strong>How to exercise.</strong> Submit a request via <a href="index.html#contact">our contact form</a> or <a href="mailto:info@mymealt.com">info@mymealt.com</a>. We will verify your identity before responding. You may use an authorised agent; we may require proof of authorisation.</p>
+      <p>16A.5 <strong>Shine the Light (California).</strong> We do not disclose Personal Information to third parties for their direct-marketing purposes.</p>
+
+      <h2>17. Grievance Officer (India)</h2>
+      <p>If you have questions, concerns, or grievances regarding this Policy or our processing of your Personal Data, you may contact our Grievance Officer, appointed in accordance with applicable Indian law:</p>
+      <ul>
+        <li>Name: <mark>[Grievance Officer name]</mark></li>
+        <li>Designation: <mark>[Designation]</mark></li>
+        <li>Address: <mark>[India registered office address]</mark></li>
+        <li>Email: <mark>[grievance email]</mark></li>
+        <li>Phone: +91 <mark>[phone]</mark></li>
+        <li>Business Hours: <mark>[days and time]</mark></li>
+      </ul>
+      <p>The Grievance Officer will address your grievance within any timelines applicable law prescribes.</p>
+
+      <h2>18. Contact Us</h2>
+      <p>Questions about this Policy? <a href="index.html#contact">Send us a message</a> or email us at <a href="mailto:info@mymealt.com">info@mymealt.com</a>.</p>
     </div>
   </main>
 

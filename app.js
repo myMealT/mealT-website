@@ -71,3 +71,29 @@ function showFeedback(type, text) {
   feedback.textContent = text;
   feedback.hidden = false;
 }
+
+// ─── Platform-aware store buttons ────────────────────────────────────────────
+// On a phone, the visitor's own store is the only button that matters: put it
+// first and let it dominate. Desktop (and anything ambiguous) keeps both.
+(function () {
+  var ua = navigator.userAgent || '';
+  var isAndroid = /android/i.test(ua);
+  // iPadOS 13+ reports as Mac — detect via touch points.
+  var isIOS = /iphone|ipad|ipod/i.test(ua) ||
+    (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+  if (!isAndroid && !isIOS) return;
+
+  document.querySelectorAll('.hero-actions').forEach(function (wrap) {
+    var buttons = wrap.querySelectorAll('.store-btn');
+    buttons.forEach(function (btn) {
+      var toPlay = /play\.google\.com/.test(btn.href);
+      var mine = (isAndroid && toPlay) || (isIOS && !toPlay);
+      if (mine) {
+        wrap.prepend(btn);           // visitor's store first
+        btn.classList.add('store-btn-primary');
+      } else {
+        btn.classList.add('store-btn-secondary');
+      }
+    });
+  });
+})();
