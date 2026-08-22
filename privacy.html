@@ -69,6 +69,7 @@
         <li>Phone number — used to create and verify your account via OTP. We do not use it for marketing.</li>
         <li>Profile information — name, date of birth, height, weight, and fitness goals, provided voluntarily to personalise calorie targets.</li>
         <li>Meal logs — foods, photographs, and nutritional data you record.</li>
+        <li>Restaurant menu photographs — if you use the Eat Out feature, photographs of restaurant menus you scan. These are processed transiently to extract menu text (dish names, prices, and nutrition estimates) and are not permanently stored; the extracted menu content is added to a shared restaurant database that is not linked to your identity.</li>
         <li>Messages — feedback, enquiries, or communications you send us.</li>
         <li>Any other Personal Data you voluntarily provide.</li>
       </ul>
@@ -77,6 +78,7 @@
         <li>Device identifiers, including your Firebase Cloud Messaging token, for push notifications.</li>
         <li>IP address, browser type, operating system, device information, and similar technical data.</li>
         <li>Usage data, crash reports, and analytics via Firebase Crashlytics and Google Analytics, to fix bugs and improve the app. These do not intentionally include personally identifiable information.</li>
+        <li>Location — if you grant location permission and use location-based features (such as finding nearby restaurants, restaurant check-ins, or associating a scanned menu with a restaurant), your device's precise location is used to serve that request. We do not keep a history of your movements: coordinates are used transiently and retained at most briefly for processing (see Section 11); only <em>restaurant</em> locations are stored durably. Location is never used for advertising or shared for marketing.</li>
         <li>Cookies and similar technologies, as described in Section 10.</li>
       </ul>
       <h3>2.3 Health and Wellness Data</h3>
@@ -118,7 +120,8 @@
         <li><strong>Heroku (Salesforce)</strong> — cloud infrastructure, application hosting, and database services.</li>
         <li><strong>Twilio</strong> — OTP SMS delivery for account verification (your phone number is shared solely for this).</li>
         <li><strong>Cloudinary</strong> — storage and delivery of meal photographs.</li>
-        <li><strong>Anthropic</strong> — AI analysis of meal photographs to identify foods and estimate nutrition (processed transiently; not used to train AI models).</li>
+        <li><strong>Anthropic</strong> — AI analysis of meal and restaurant-menu photographs to identify foods and estimate nutrition, and generation of eating-out suggestions (processed transiently; not used to train AI models).</li>
+        <li><strong>Google Maps Platform (Places API)</strong> — restaurant discovery for location-based features. When you search for nearby restaurants, coordinates for that request are sent to Google to identify restaurants around you; Google's own privacy policy applies to its processing.</li>
         <li><strong>Google Firebase</strong> — push notifications, crash reporting (Crashlytics), and analytics.</li>
         <li><strong>Google Analytics</strong> — aggregated usage and performance information (not intentionally used to collect PII).</li>
       </ul>
@@ -148,7 +151,7 @@
       <p>Our mobile application does not use browser cookies; it relies on the device identifiers, SDKs, and analytics tools in Section 2.2. Our website may use cookies and similar technologies to keep you signed in, remember preferences, and understand aggregate usage (e.g. Google Analytics). You can control cookies through your browser; disabling them may affect website functionality but not the mobile application.</p>
 
       <h2>11. Retention of Personal Data</h2>
-      <p>We retain account data while your account is active. If you delete your account, your Personal Data is removed within <strong>30 days</strong>, unless a longer period is required or permitted by law. Meal logs and health metrics are deleted immediately on account deletion, subject to any legal retention requirement. We may retain anonymised, aggregated statistics that do not identify you indefinitely.</p>
+      <p>We retain account data while your account is active. If you delete your account, your Personal Data is removed within <strong>30 days</strong>, unless a longer period is required or permitted by law. Meal logs and health metrics are deleted immediately on account deletion, subject to any legal retention requirement. Coordinates attached to a menu-scan request are retained for at most <strong>14 days</strong> as part of scan-processing records and then deleted. Restaurant and menu content contributed through menu scans (dish names, prices, nutrition estimates, and restaurant locations) is retained in our shared restaurant database in a form not linked to your identity, and survives account deletion. We may retain anonymised, aggregated statistics that do not identify you indefinitely.</p>
 
       <h2>12. Security of Personal Data</h2>
       <p>12.1 We implement reasonable technical, organisational, and administrative measures to protect Personal Data, including:</p>
