@@ -18,9 +18,50 @@
   <meta name="twitter:description" content="The AI-powered calorie tracker. iOS & Android." />
   <meta name="twitter:image" content="https://mymealt.com/logo.png" />
   <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Native iOS Smart App Banner (Safari renders this itself) -->
+  <meta name="apple-itunes-app" content="app-id=6786082730" />
+
+  <!-- smartbanner.js — Android install banner (iOS uses the native one above) -->
+  <meta name="smartbanner:title" content="mymealT" />
+  <meta name="smartbanner:author" content="Your social fitness companion" />
+  <meta name="smartbanner:price" content="FREE" />
+  <meta name="smartbanner:price-suffix-google" content=" — on Google Play" />
+  <meta name="smartbanner:icon-google" content="https://mymealt.com/logo.png" />
+  <meta name="smartbanner:button" content="GET" />
+  <meta name="smartbanner:button-url-google" content="https://play.google.com/store/apps/details?id=com.et.mymealt" />
+  <meta name="smartbanner:enabled-platforms" content="android" />
+  <meta name="smartbanner:close-label" content="Close" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/smartbanner.js@1.19.4/dist/smartbanner.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/smartbanner.js@1.19.4/dist/smartbanner.min.js" defer></script>
+
+  <!-- AOS — subtle scroll-in animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+
+  <!-- Structured data: app listing for Google rich results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "mymealT",
+    "operatingSystem": "iOS, Android",
+    "applicationCategory": "HealthApplication",
+    "description": "AI-powered calorie tracker: snap a photo of your meal and log calories, protein, carbs and fat instantly. Track water, workouts and streaks with friends.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Organization", "name": "Emperor Technologies LLC", "url": "https://mymealt.com" },
+    "downloadUrl": [
+      "https://apps.apple.com/app/id6786082730",
+      "https://play.google.com/store/apps/details?id=com.et.mymealt"
+    ]
+  }
+  </script>
 </head>
-<body>
+<body class="dark">
 
   <!-- Nav -->
   <nav class="nav">
@@ -43,74 +84,100 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="container">
-      <div class="hero-badge">AI-Powered Food Tracking</div>
-      <h1 class="hero-title">Track smarter,<br>eat better.</h1>
-      <p class="hero-sub">
-        Snap a photo of your meal and mymealT instantly logs the calories, protein, carbs, and fat —
-        no manual searching, no guessing.
-      </p>
-      <div class="hero-actions" id="download">
-        <a href="https://apps.apple.com/app/id6786082730" class="store-btn" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          App Store
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.et.mymealt" class="store-btn" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M3.18 23.76c.28.15.6.19.91.11l12.39-7.15-2.58-2.58L3.18 23.76zm16.7-9.73L17.5 12.5l2.38-1.53c.74-.48.74-1.44 0-1.92L17.5 7.5l-2.38 1.53L5.47.69C5.16.54 4.82.5 4.5.62L3.07 2.05c-.38.38-.38 1 0 1.38l11.1 11.07L3.07 20.57c-.38.38-.38 1 0 1.38l1.43 1.43c.32.12.66.08.97-.07l14.41-8.34c.74-.48.74-1.46 0-1.94z"/></svg>
-          Google Play
-        </a>
+    <div class="container hero-split">
+      <div class="hero-copy">
+        <div class="hero-badge">AI-Powered Food Tracking</div>
+        <h1 class="hero-title">Track smarter,<br><span class="grad">eat better.</span></h1>
+        <p class="hero-sub">
+          Snap a photo of your meal and mymealT instantly logs the calories, protein, carbs, and fat —
+          no manual searching, no guessing.
+        </p>
+        <div class="hero-actions" id="download">
+          <a href="https://apps.apple.com/app/id6786082730" class="store-btn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            App Store
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.et.mymealt" class="store-btn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M3.18 23.76c.28.15.6.19.91.11l12.39-7.15-2.58-2.58L3.18 23.76zm16.7-9.73L17.5 12.5l2.38-1.53c.74-.48.74-1.44 0-1.92L17.5 7.5l-2.38 1.53L5.47.69C5.16.54 4.82.5 4.5.62L3.07 2.05c-.38.38-.38 1 0 1.38l11.1 11.07L3.07 20.57c-.38.38-.38 1 0 1.38l1.43 1.43c.32.12.66.08.97-.07l14.41-8.34c.74-.48.74-1.46 0-1.94z"/></svg>
+            Google Play
+          </a>
+        </div>
+        <div class="stat-strip">
+          <div class="stat"><span class="stat-num" data-count="1">1</span><span class="stat-label">photo → full macros</span></div>
+          <div class="stat"><span class="stat-num" data-count="9">9</span><span class="stat-label">ways to track</span></div>
+          <div class="stat"><span class="stat-num" data-count="3">3</span><span class="stat-label">countries &amp; counting</span></div>
+        </div>
+      </div>
+      <div class="hero-device" aria-hidden="true">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <video src="assets/hero-loop.mp4" autoplay muted loop playsinline></video>
+        </div>
       </div>
     </div>
     <div class="hero-glow"></div>
   </section>
 
+  <!-- Launch film -->
+  <section class="film" id="film">
+    <div class="container">
+      <h2 class="section-title">60 seconds. <span class="grad">His pace.</span></h2>
+      <div class="film-frame" data-aos="fade-up">
+        <video src="assets/launch.mp4" poster="assets/launch-poster.jpg" controls preload="none" playsinline></video>
+      </div>
+    </div>
+  </section>
+
   <!-- Features -->
   <section class="features" id="features">
     <div class="container">
-      <h2 class="section-title">Everything you need to hit your goals</h2>
+      <div class="section-head">
+        <img src="assets/sprout.png" alt="" class="munchie-peek" aria-hidden="true" />
+        <h2 class="section-title">Everything you need to <span class="grad">hit your goals</span></h2>
+      </div>
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon">📸</div>
+          <img class="feature-shot" src="assets/f-scan.jpg" alt="Meal photo scan result with macros" loading="lazy" />
           <h3>AI Photo Logging</h3>
           <p>Snap any meal — mymealT's AI instantly logs calories, protein, carbs, fat and fibre. No barcodes, no searching.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon blue">🎙️</div>
+          <img class="feature-shot" src="assets/f-voice.jpg" alt="Voice logging screen" loading="lazy" />
           <h3>Voice &amp; Text Logging</h3>
           <p>In a hurry? Just say or type what you ate — separate items with a “+” and get accurate estimates in seconds.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon green">📊</div>
+          <img class="feature-shot" src="assets/f-vitals.jpg" alt="Macro trends charts" loading="lazy" />
           <h3>Macros &amp; Micros</h3>
           <p>A calorie ring coloured by what you ate, a full macro breakdown, plus micronutrients with %DV against your profile.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">⚖️</div>
+          <img class="feature-shot" src="assets/f-macros.jpg" alt="Goal deficit trend chart" loading="lazy" />
           <h3>Calorie Balance</h3>
           <p>See your true deficit — intake vs active calories burned — with time-variant trend graphs over 30 and 90 days.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon blue">🔥</div>
+          <img class="feature-shot" src="assets/f-streaks.jpg" alt="Level progress and challenges" loading="lazy" />
           <h3>Streaks, Levels &amp; Quests</h3>
           <p>Stay consistent with daily quests, XP, levels, seasonal challenges and badges that make tracking a habit.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon green">💧</div>
+          <img class="feature-shot" src="assets/f-water.jpg" alt="Water tracking ring" loading="lazy" />
           <h3>Water Tracking</h3>
           <p>Log hydration alongside your meals, with smart reminders that keep you on target throughout the day.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">👥</div>
+          <img class="feature-shot" src="assets/f-friends.jpg" alt="Social feed with quests and weekly recap" loading="lazy" />
           <h3>Friends, Groups &amp; Challenges</h3>
           <p>Share meals, split them with friends, join group challenges and climb the leaderboards together.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon blue">❤️</div>
+          <img class="feature-shot" src="assets/f-balance.jpg" alt="Weight, streak and vitals trends" loading="lazy" />
           <h3>Health &amp; Vitals</h3>
           <p>Sync with Apple Health &amp; Google Fit — weight, heart rate, HRV and nutrition trends, all in one place.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon green">🥗</div>
+          <img class="feature-shot" src="assets/f-pantry.jpg" alt="Pantry items list" loading="lazy" />
           <h3>Smart Pantry &amp; Recipes</h3>
           <p>Scan groceries or receipts, track your pantry, and get recipe ideas from what you already have.</p>
         </div>

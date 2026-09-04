@@ -72,6 +72,43 @@ function showFeedback(type, text) {
   feedback.hidden = false;
 }
 
+// ─── Scroll-in animations (AOS) ──────────────────────────────────────────────
+// Attributes are injected here so the markup stays lean; feature cards stagger
+// by column. once:true = animate a single time, no re-trigger on scroll-up.
+window.addEventListener('load', function () {
+  if (!window.AOS) return;
+  document
+    .querySelectorAll('.section-title, .contact-card, .hero-badge, .hero-title, .hero-sub, .hero-actions')
+    .forEach(function (el) { el.setAttribute('data-aos', 'fade-up'); });
+  document.querySelectorAll('.feature-card').forEach(function (el, i) {
+    el.setAttribute('data-aos', 'fade-up');
+    el.setAttribute('data-aos-delay', String((i % 3) * 75));
+  });
+  AOS.init({ duration: 600, once: true, offset: 60 });
+});
+
+// ─── Stat strip count-up ─────────────────────────────────────────────────────
+(function () {
+  var stats = document.querySelectorAll('.stat-num[data-count]');
+  if (!stats.length || !('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      io.unobserve(en.target);
+      var target = parseInt(en.target.getAttribute('data-count'), 10) || 0;
+      var start = null;
+      function tick(ts) {
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / 900, 1);
+        en.target.textContent = String(Math.round(target * (0.4 + 0.6 * p)));
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }, { threshold: 0.6 });
+  stats.forEach(function (el) { io.observe(el); });
+})();
+
 // ─── Platform-aware store buttons ────────────────────────────────────────────
 // On a phone, the visitor's own store is the only button that matters: put it
 // first and let it dominate. Desktop (and anything ambiguous) keeps both.
