@@ -87,6 +87,34 @@ window.addEventListener('load', function () {
   AOS.init({ duration: 600, once: true, offset: 60 });
 });
 
+// ─── Expandable feature cards ────────────────────────────────────────────────
+// Click: card expands full-width at the top of the grid (image left, text
+// right); others reflow below. Click again — or another card — to change.
+document.querySelectorAll('.feature-card').forEach(function (card) {
+  card.setAttribute('tabindex', '0');
+  card.setAttribute('role', 'button');
+  card.setAttribute('aria-expanded', 'false');
+  function toggle() {
+    var wasOpen = card.classList.contains('expanded');
+    document.querySelectorAll('.feature-card.expanded').forEach(function (c) {
+      c.classList.remove('expanded');
+      c.setAttribute('aria-expanded', 'false');
+    });
+    if (!wasOpen) {
+      card.classList.add('expanded');
+      card.setAttribute('aria-expanded', 'true');
+      // The card jumps to the top of the grid — keep it in view.
+      requestAnimationFrame(function () {
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    }
+  }
+  card.addEventListener('click', toggle);
+  card.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+  });
+});
+
 // ─── Stat strip count-up ─────────────────────────────────────────────────────
 (function () {
   var stats = document.querySelectorAll('.stat-num[data-count]');
