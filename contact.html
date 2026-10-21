@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — my MealT</title>
+  <meta name="description" content="Questions, bugs or ideas? Send the my MealT team a message." />
+  <link rel="canonical" href="https://mymealt.com/contact.html" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark">
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="" class="logo-img" />
+        <span class="logo-text">my MealT</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#get" class="btn btn-sm">Get the app</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Contact -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-card">
+        <div class="contact-header">
+          <h2>Get in touch</h2>
+          <p>Have a question, found a bug, or just want to say hi? We read every message.</p>
+        </div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Message <span class="required">*</span></label>
+            <textarea id="message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
+          </div>
+          <div class="form-footer">
+            <p class="form-note">Name and email are optional — but include them if you'd like a reply.</p>
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              <span id="btnText">Send message</span>
+              <span id="btnSpinner" hidden>Sending…</span>
+            </button>
+          </div>
+          <div id="formFeedback" class="form-feedback" hidden></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="" class="logo-img" />
+        <span class="logo-text">my MealT</span>
+      </div>
+      <nav class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+      <p class="footer-copy">© 2026 Emperor Technologies LLC. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

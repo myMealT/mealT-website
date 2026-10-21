@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get my MealT</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="home.css" />
+  <script>
+    // QR code target: send phones straight to their store.
+    (function () {
+      var ua = navigator.userAgent || '';
+      if (/android/i.test(ua)) location.replace('https://play.google.com/store/apps/details?id=com.et.mymealt');
+      else if (/iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1)) location.replace('https://apps.apple.com/app/id6786082730');
+    })();
+  </script>
+</head>
+<body>
+  <main class="section">
+    <div class="wrap wrap-narrow" style="text-align:center">
+      <a href="index.html" class="logo"><img src="logo.png" alt="" width="30" height="30" />my MealT</a>
+      <h2 style="margin-top:28px">Get the app</h2>
+      <p class="lead">Free on iOS and Android.</p>
+      <div class="stores" style="justify-content:center">
+        <a href="https://apps.apple.com/app/id6786082730" class="store store-ios"><span><small>Download on the</small>App Store</span></a>
+        <a href="https://play.google.com/store/apps/details?id=com.et.mymealt" class="store store-play"><span><small>Get it on</small>Google Play</span></a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

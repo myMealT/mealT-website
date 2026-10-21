@@ -5,6 +5,10 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://mymealt.com/contact.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://mymealt.com/privacy.html</loc>
     <priority>0.5</priority>
   </url>

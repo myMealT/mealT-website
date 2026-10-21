@@ -3,55 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mymealT — Your social fitness companion</title>
-  <meta name="description" content="mymealT is your social fitness companion — AI-powered calorie tracking, water, workouts and streaks you share with friends. On iOS and Android." />
+  <title>my MealT — Snap your meal. Know what's in it.</title>
+  <meta name="description" content="my MealT logs calories, protein, carbs and fat from one photo. Confirm it later, share it with friends and keep each other on track. Free on iOS and Android." />
   <link rel="canonical" href="https://mymealt.com/" />
   <!-- Open Graph / social sharing -->
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="mymealT" />
-  <meta property="og:title" content="mymealT — Your social fitness companion" />
-  <meta property="og:description" content="AI-powered calorie tracking, water, workouts and streaks you share with friends. On iOS and Android." />
+  <meta property="og:site_name" content="my MealT" />
+  <meta property="og:title" content="my MealT — Snap your meal. Know what's in it." />
+  <meta property="og:description" content="One photo logs calories, protein, carbs and fat. Share it with friends and keep each other on track. Free on iOS and Android." />
   <meta property="og:url" content="https://mymealt.com/" />
   <meta property="og:image" content="https://mymealt.com/logo.png" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="mymealT — Your social fitness companion" />
-  <meta name="twitter:description" content="Your social fitness companion. iOS & Android." />
+  <meta name="twitter:title" content="my MealT — Snap your meal. Know what's in it." />
+  <meta name="twitter:description" content="One photo logs your macros. Free on iOS and Android." />
   <meta name="twitter:image" content="https://mymealt.com/logo.png" />
   <link rel="icon" href="logo.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="home.css" />
 
   <!-- Native iOS Smart App Banner (Safari renders this itself) -->
   <meta name="apple-itunes-app" content="app-id=6786082730" />
-
-  <!-- smartbanner.js — Android install banner (iOS uses the native one above) -->
-  <meta name="smartbanner:title" content="mymealT" />
-  <meta name="smartbanner:author" content="Your social fitness companion" />
-  <meta name="smartbanner:price" content="FREE" />
-  <meta name="smartbanner:price-suffix-google" content=" — on Google Play" />
-  <meta name="smartbanner:icon-google" content="https://mymealt.com/logo.png" />
-  <meta name="smartbanner:button" content="GET" />
-  <meta name="smartbanner:button-url-google" content="https://play.google.com/store/apps/details?id=com.et.mymealt" />
-  <meta name="smartbanner:enabled-platforms" content="android" />
-  <meta name="smartbanner:close-label" content="Close" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/smartbanner.js@1.19.4/dist/smartbanner.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/smartbanner.js@1.19.4/dist/smartbanner.min.js" defer></script>
-
-  <!-- AOS — subtle scroll-in animations -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
 
   <!-- Structured data: app listing for Google rich results -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "MobileApplication",
-    "name": "mymealT",
+    "name": "my MealT",
     "operatingSystem": "iOS, Android",
     "applicationCategory": "HealthApplication",
-    "description": "Your social fitness companion: snap a photo of your meal and log calories, protein, carbs and fat instantly. Track water, workouts and streaks with friends.",
+    "description": "Snap a photo of your meal and log calories, protein, carbs and fat. Share meals, split them with friends and take on challenges together.",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
     "author": { "@type": "Organization", "name": "Emperor Technologies LLC", "url": "https://mymealt.com" },
     "downloadUrl": [
@@ -61,185 +44,242 @@
   }
   </script>
 </head>
-<body class="dark">
+<body>
+
+  <a class="skip" href="#main">Skip to content</a>
 
   <!-- Nav -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="logo">
-        <img src="logo.png" alt="mymealT" class="logo-img" />
-        <span class="logo-text">mymealT</span>
-      </a>
-      <div class="nav-links">
+  <nav class="nav" aria-label="Main">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="logo"><img src="logo.png" alt="" width="30" height="30" />my MealT</a>
+      <div class="nav-links" id="navLinks">
+        <a href="#how">How it works</a>
         <a href="#features">Features</a>
-        <a href="#download">Download</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="#contact" class="btn btn-sm">Contact</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
       </div>
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
+      <a href="#get" class="cta nav-cta">Get the app</a>
+      <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </div>
   </nav>
 
+  <main id="main">
+
   <!-- Hero -->
-  <section class="hero">
-    <div class="container hero-split">
+  <header class="hero">
+    <div class="wrap hero-grid">
       <div class="hero-copy">
-        <div class="hero-badge">Your Social Fitness Companion</div>
-        <h1 class="hero-title">Track smarter,<br><span class="grad">eat better.</span></h1>
-        <p class="hero-sub">
-          Snap a photo of your meal and mymealT instantly logs the calories, protein, carbs, and fat —
-          no manual searching, no guessing. Then keep it going with your friends: streaks, challenges
-          and wins you can share.
-        </p>
-        <div class="hero-actions" id="download">
-          <a href="https://apps.apple.com/app/id6786082730" class="store-btn" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            App Store
+        <div class="eyebrow"><i aria-hidden="true"></i>Free on iOS and Android</div>
+        <h1>Snap your meal.<br><span class="grad">Know what's in it.</span></h1>
+        <p class="sub">One photo logs calories, protein, carbs and fat. Confirm it later, share it with friends, and keep each other on track.</p>
+        <div class="stores">
+          <a href="https://apps.apple.com/app/id6786082730" class="store store-ios" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span><small>Download on the</small>App Store</span>
           </a>
-          <a href="https://play.google.com/store/apps/details?id=com.et.mymealt" class="store-btn" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M3.18 23.76c.28.15.6.19.91.11l12.39-7.15-2.58-2.58L3.18 23.76zm16.7-9.73L17.5 12.5l2.38-1.53c.74-.48.74-1.44 0-1.92L17.5 7.5l-2.38 1.53L5.47.69C5.16.54 4.82.5 4.5.62L3.07 2.05c-.38.38-.38 1 0 1.38l11.1 11.07L3.07 20.57c-.38.38-.38 1 0 1.38l1.43 1.43c.32.12.66.08.97-.07l14.41-8.34c.74-.48.74-1.46 0-1.94z"/></svg>
-            Google Play
+          <a href="https://play.google.com/store/apps/details?id=com.et.mymealt" class="store store-play" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3 13.8 12 3.6 21.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1Zm11.3 8.6 2.6-2.6 3.2 1.8c.9.5.9 1.8 0 2.3l-3.2 1.8-2.6-2.6-.6-.6.6-.1ZM5 2l10.9 6.3-2.4 2.4L5 2Zm8.5 11.3 2.4 2.4L5 22l8.5-8.7Z"/></svg>
+            <span><small>Get it on</small>Google Play</span>
           </a>
         </div>
-        <div class="stat-strip">
-          <div class="stat"><span class="stat-num" data-count="1">1</span><span class="stat-label">photo → full macros</span></div>
-          <div class="stat"><span class="stat-num" data-count="9">9</span><span class="stat-label">ways to track</span></div>
-          <div class="stat"><span class="stat-num" data-count="3">3</span><span class="stat-label">countries &amp; counting</span></div>
-        </div>
+        <ul class="trust">
+          <li><b>3 photo scans a day</b>&nbsp;free</li>
+          <li>India, US &amp; Canada</li>
+          <li>No ads. We never sell your data.</li>
+        </ul>
       </div>
-      <div class="hero-device" aria-hidden="true">
-        <div class="phone-frame">
-          <div class="phone-notch"></div>
-          <video src="assets/hero-loop.mp4?v=2026-10" autoplay muted loop playsinline></video>
-        </div>
+      <div class="phones" aria-hidden="true">
+        <div class="ph ph-back"><img src="assets/s-feed.jpg" alt="" width="560" height="1217" /></div>
+        <div class="ph ph-front"><img src="assets/s-scan.jpg" alt="" width="560" height="1191" /></div>
       </div>
     </div>
-    <div class="hero-glow"></div>
-  </section>
+  </header>
 
-  <!-- Launch film -->
-  <section class="film" id="film">
-    <div class="container">
-      <h2 class="section-title">60 seconds. <span class="grad">His pace.</span></h2>
-      <div class="film-frame" data-aos="fade-up">
-        <video src="assets/launch.mp4" poster="assets/launch-poster.jpg" controls preload="none" playsinline></video>
-      </div>
+  <!-- How it works -->
+  <section id="how" class="section">
+    <div class="wrap">
+      <p class="kicker">How it works</p>
+      <h2>Three taps a day. That's it.</h2>
+      <ol class="steps">
+        <li class="step"><span class="num">1</span><h3>Snap</h3><p>Take a photo, scan a barcode or just say what you ate. Add a note if you want.</p></li>
+        <li class="step"><span class="num">2</span><h3>Confirm later</h3><p>We work out the macros. Check them on Today when you have a minute.</p></li>
+        <li class="step"><span class="num">3</span><h3>Share and keep going</h3><p>Post to friends, split a meal, join a challenge and keep your streak.</p></li>
+      </ol>
     </div>
   </section>
 
   <!-- Features -->
-  <section class="features" id="features">
-    <div class="container">
-      <div class="section-head">
-        <img src="assets/sprout.png" alt="" class="munchie-peek" aria-hidden="true" />
-        <h2 class="section-title">Everything you need to <span class="grad">hit your goals</span></h2>
+  <section id="features" class="section section-tight">
+    <div class="wrap">
+      <div class="row">
+        <div class="txt">
+          <p class="kicker">Photo logging</p>
+          <h3>Point, shoot, done.</h3>
+          <p>The AI spots every item on the plate and gives you calories and macros you can edit item by item.</p>
+          <ul class="ticks">
+            <li>Works on home cooking, takeaway and restaurant plates</li>
+            <li>Voice and text when you can't take a photo</li>
+          </ul>
+        </div>
+        <div class="shot"><div class="ph"><img src="assets/s-scan.jpg" alt="Meal scan with calories and macros for each item" width="560" height="1191" loading="lazy" /></div></div>
       </div>
-      <div class="features-grid">
-        <div class="feature-card">
-          <img class="feature-shot" src="assets/f-scan.jpg" alt="Meal photo scan result with macros" loading="lazy" />
-          <h3>AI Photo Logging</h3>
-          <p>Snap any meal — mymealT's AI instantly logs calories, protein, carbs, fat and fibre. No barcodes, no searching.</p>
+      <div class="row rev">
+        <div class="txt">
+          <p class="kicker">Food score</p>
+          <h3>Grade a label before you buy.</h3>
+          <p>Scan any packaged food and get a score out of 100 with the reasons behind it.</p>
         </div>
-        <div class="feature-card">
-          <img class="feature-shot" src="assets/f-voice.jpg" alt="Voice logging screen" loading="lazy" />
-          <h3>Voice &amp; Text Logging</h3>
-          <p>In a hurry? Just say or type what you ate — separate items with a “+” and get accurate estimates in seconds.</p>
+        <div class="shot"><div class="ph"><img src="assets/s-foodscore.jpg" alt="Food score for a Greek yogurt" width="560" height="1191" loading="lazy" /></div></div>
+      </div>
+      <div class="row">
+        <div class="txt">
+          <p class="kicker">Better together</p>
+          <h3>Eat with friends, log once.</h3>
+          <p>Split a shared meal so everyone's portion is counted. Post your plate, cheer each other on and take on group challenges.</p>
         </div>
-        <div class="feature-card">
-          <img class="feature-shot" src="assets/f-vitals.jpg" alt="Macro trends charts" loading="lazy" />
-          <h3>Macros &amp; Micros</h3>
-          <p>A calorie ring coloured by what you ate, a full macro breakdown, plus micronutrients with %DV against your profile.</p>
+        <div class="shot"><div class="ph"><img src="assets/s-split.jpg" alt="Splitting a shared meal between friends" width="560" height="1191" loading="lazy" /></div></div>
+      </div>
+
+      <h2 class="more-title">And everything else you need</h2>
+      <ul class="more">
+        <li><span class="ic ic-blue"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.7s6 6.3 6 11a6 6 0 0 1-12 0c0-4.7 6-11 6-11Z"/></svg></span><div><b>Water</b><span>One-tap glasses and smart reminders.</span></div></li>
+        <li><span class="ic ic-green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></span><div><b>Vitals and trends</b><span>Weight, heart rate and macro trends, synced with Apple Health and Health Connect.</span></div></li>
+        <li><span class="ic ic-orange"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 13.9A4 4 0 0 1 7 6a5 5 0 0 1 10 0 4 4 0 0 1 1 7.9V20H6Z"/><path d="M6 17h12"/></svg></span><div><b>Pantry and recipes</b><span>Cook from what you already have.</span></div></li>
+        <li><span class="ic ic-orange"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3.3.4 1.4 1.5 2.8 2.5 2.8Z"/></svg></span><div><b>Streaks, levels and quests</b><span>Small daily goals that build the habit.</span></div></li>
+        <li><span class="ic ic-green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11h18M5 11l1 9h12l1-9M9 7l3-4 3 4"/></svg></span><div><b>Eating out</b><span>Photograph a menu and get the best picks for your goal.</span></div></li>
+        <li><span class="ic ic-blue"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v4h10v-4M3 8v8M21 8v8M5 12h2M17 12h2"/></svg></span><div><b>Workouts</b><span>Log sets and see which muscles are recovered.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="section">
+    <div class="wrap">
+      <p class="kicker">Pricing</p>
+      <div class="pricing-head">
+        <h2>Start free. Upgrade when you're hooked.</h2>
+        <div class="region" role="group" aria-label="Show prices for">
+          <button type="button" data-region="US" aria-pressed="true">US</button>
+          <button type="button" data-region="IN" aria-pressed="false">India</button>
+          <button type="button" data-region="CA" aria-pressed="false">Canada</button>
         </div>
-        <div class="feature-card">
-          <img class="feature-shot" src="assets/f-macros.jpg" alt="Goal deficit trend chart" loading="lazy" />
-          <h3>Calorie Balance</h3>
-          <p>See your true deficit — intake vs active calories burned — with time-variant trend graphs over 30 and 90 days.</p>
+      </div>
+      <div class="plans">
+        <div class="plan">
+          <h3>Free</h3>
+          <p class="price" data-price="free">$0</p>
+          <p class="note">Forever</p>
+          <ul>
+            <li>3 photo scans a day</li>
+            <li>Voice and text logging</li>
+            <li>Friends, groups and streaks</li>
+          </ul>
         </div>
-        <div class="feature-card">
-          <img class="feature-shot" src="assets/f-streaks.jpg" alt="Level progress and challenges" loading="lazy" />
-          <h3>Streaks, Levels &amp; Quests</h3>
-          <p>Stay consistent with daily quests, XP, levels, seasonal challenges and badges that make tracking a habit.</p>
+        <div class="plan pop">
+          <span class="badge">Most popular</span>
+          <h3>Plus</h3>
+          <p class="price" data-price="plus-month"><small>From </small>$1.49<small> / week</small></p>
+          <p class="note">Weekly, monthly or yearly · cancel any time</p>
+          <ul>
+            <li>More photo scans every day</li>
+            <li>More voice and text logs</li>
+            <li>More coach chats</li>
+          </ul>
         </div>
-        <div class="feature-card">
-          <img class="feature-shot" src="assets/f-water.jpg" alt="Water tracking ring" loading="lazy" />
-          <h3>Water Tracking</h3>
-          <p>Log hydration alongside your meals, with smart reminders that keep you on target throughout the day.</p>
+        <div class="plan">
+          <h3>Gold</h3>
+          <p class="price" data-price="gold-month"><small>From </small>$9.99<small> / month</small></p>
+          <p class="note">Monthly or yearly · cancel any time</p>
+          <ul>
+            <li>Everything in Plus, with the highest daily limits</li>
+            <li>Our most accurate model for photos</li>
+            <li>The most coach chats</li>
+          </ul>
         </div>
-        <div class="feature-card">
-          <img class="feature-shot" src="assets/f-friends.jpg" alt="Social feed with quests and weekly recap" loading="lazy" />
-          <h3>Friends, Groups &amp; Challenges</h3>
-          <p>Share meals, split them with friends, join group challenges and climb the leaderboards together.</p>
+      </div>
+      <p class="fine">Starting prices. The final price depends on your app store and local taxes, and you'll see it in the app before you pay.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section section-tight">
+    <div class="wrap wrap-narrow">
+      <p class="kicker">FAQ</p>
+      <h2>Questions</h2>
+      <div class="faq">
+        <details>
+          <summary>How accurate is the photo logging?</summary>
+          <p>It's an AI estimate. You see every item it found and can adjust portions or fix an item before anything is logged.</p>
+        </details>
+        <details>
+          <summary>Who can see my meals?</summary>
+          <p>Only you, unless you choose to share a meal with friends or a group. Shared posts disappear after 24 hours.</p>
+        </details>
+        <details>
+          <summary>Does it work with Apple Health and Health Connect?</summary>
+          <p>Yes. With your permission my MealT reads weight, steps and activity so your trends and calorie balance stay accurate.</p>
+        </details>
+        <details>
+          <summary>How do I cancel my subscription?</summary>
+          <p>Cancel any time in your App Store or Google Play subscriptions. Need help? <a href="contact.html">Contact us</a>.</p>
+        </details>
+        <details>
+          <summary>I have a question that isn't here.</summary>
+          <p><a href="contact.html">Send us a message</a>. We read every one.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section id="get" class="section section-tight">
+    <div class="wrap">
+      <div class="final">
+        <div>
+          <h2>Your next meal is your first log.</h2>
+          <p class="lead">Free to download. Takes a minute to set up.</p>
+          <div class="stores">
+            <a href="https://apps.apple.com/app/id6786082730" class="store store-ios" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <span><small>Download on the</small>App Store</span>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.et.mymealt" class="store store-play" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3 13.8 12 3.6 21.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1Zm11.3 8.6 2.6-2.6 3.2 1.8c.9.5.9 1.8 0 2.3l-3.2 1.8-2.6-2.6-.6-.6.6-.1ZM5 2l10.9 6.3-2.4 2.4L5 2Zm8.5 11.3 2.4 2.4L5 22l8.5-8.7Z"/></svg>
+              <span><small>Get it on</small>Google Play</span>
+            </a>
+          </div>
         </div>
-        <div class="feature-card">
-          <img class="feature-shot" src="assets/f-balance.jpg" alt="Weight, streak and vitals trends" loading="lazy" />
-          <h3>Health &amp; Vitals</h3>
-          <p>Sync with Apple Health &amp; Google Fit — weight, heart rate, HRV and nutrition trends, all in one place.</p>
-        </div>
-        <div class="feature-card">
-          <img class="feature-shot" src="assets/f-pantry.jpg" alt="Pantry items list" loading="lazy" />
-          <h3>Smart Pantry &amp; Recipes</h3>
-          <p>Scan groceries or receipts, track your pantry, and get recipe ideas from what you already have.</p>
+        <div class="qrbox">
+          <img src="assets/qr-get.svg" alt="QR code linking to the my MealT download page" width="132" height="132" />
+          <p>Scan with your phone</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section class="contact-section" id="contact">
-    <div class="container">
-      <div class="contact-card">
-        <div class="contact-header">
-          <h2>Get in touch</h2>
-          <p>Have a question, found a bug, or just want to say hi? We read every message.</p>
-        </div>
-        <form class="contact-form" id="contactForm" novalidate>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" />
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="message">Message <span class="required">*</span></label>
-            <textarea id="message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
-          </div>
-          <div class="form-footer">
-            <p class="form-note">Name and email are optional — but include them if you'd like a reply.</p>
-            <button type="submit" class="btn btn-primary" id="submitBtn">
-              <span id="btnText">Send message</span>
-              <span id="btnSpinner" hidden>Sending…</span>
-            </button>
-          </div>
-          <div id="formFeedback" class="form-feedback" hidden></div>
-        </form>
-      </div>
-    </div>
-  </section>
+  </main>
 
-  <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <img src="logo.png" alt="mymealT" class="logo-img" />
-        <span class="logo-text">mymealT</span>
-      </div>
-      <nav class="footer-links">
-        <a href="privacy.html">Privacy Policy</a>
+    <div class="wrap footer-inner">
+      <a href="index.html" class="logo"><img src="logo.png" alt="" width="30" height="30" />my MealT</a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
-        <a href="#contact">Contact</a>
-        <a href="https://apps.apple.com/app/id6786082730" target="_blank" rel="noopener">iOS</a>
-        <a href="https://play.google.com/store/apps/details?id=com.et.mymealt" target="_blank" rel="noopener">Android</a>
+        <a href="contact.html">Contact us</a>
       </nav>
-      <p class="footer-copy">© 2026 Emperor Technologies LLC. All rights reserved.</p>
+      <p class="copy">© 2026 Emperor Technologies LLC. All rights reserved.</p>
     </div>
   </footer>
 
-  <script src="app.js"></script>
+  <!-- Phones only: download bar pinned to the bottom -->
+  <div class="sticky" id="stickyBar">
+    <img src="logo.png" alt="" width="36" height="36" />
+    <div><b>my MealT</b><span id="stickyStore">Free download</span></div>
+    <a class="cta" id="stickyCta" href="#get">Get the app</a>
+  </div>
+
+  <script src="home.js"></script>
 </body>
 </html>
