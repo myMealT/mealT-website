@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manage Subscription — mymealT</title>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="robots" content="noindex" />
+  <title>Manage Subscription — my MealT</title>
   <link rel="icon" href="/logo.png" type="image/png" />
   <link rel="stylesheet" href="/style.css" />
   <style>
@@ -59,7 +61,7 @@
 <body>
   <div class="portal-page">
     <div class="logo-row">
-      <img src="/logo.png" alt="mymealT" class="logo-img" /><span>mymealT</span>
+      <img src="/logo.png" alt="" class="logo-img" /><span>my MealT</span>
     </div>
 
     <!-- Loading state -->
@@ -73,7 +75,7 @@
       <div class="portal-icon">😕</div>
       <p class="portal-title">Something went wrong</p>
       <p class="portal-sub" id="errorMsg">We couldn't open the subscription manager. Please go back to the app and try again.</p>
-      <a href="mealt://" class="btn btn-primary">Back to mymealT</a>
+      <a href="mealt://" class="btn btn-primary">Back to my MealT</a>
     </div>
   </div>
 
@@ -88,6 +90,8 @@
     async function init() {
       const params = new URLSearchParams(window.location.search);
       const token = params.get('t');
+      // Drop the one-time token from the address bar (history, screenshots, shared links).
+      if (token) history.replaceState(null, '', window.location.pathname);
 
       if (!token) {
         show('stateError');
