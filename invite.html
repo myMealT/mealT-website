@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="robots" content="noindex" />
+  <title>You're invited — my MealT</title>
+  <link rel="icon" href="/logo.png" type="image/png" />
+  <link rel="stylesheet" href="/style.css" />
+  <!--
+    Invite link landing: https://mymealt.com/invite?code=MT7K4QX[&c=<challenge>|&s=<share>]
+    Same behaviour as the API's GET /invite (calorie-tracker-api routes/invites.ts):
+      Android → Play Store with referrer=mt_code%3D<code>… (the app redeems it after sign-in)
+      iPhone  → this page; the button copies the full link (the app's first-run clipboard check
+                redeems it) and opens the App Store
+      Desktop → this page with both store buttons
+    The inviter's first name comes from GET /invite/info. Nothing else about them is shown.
+  -->
+  <style>
+    .inv { min-height: 100dvh; display: flex; flex-direction: column; align-items: center;
+           justify-content: center; padding: 40px 24px; text-align: center; box-sizing: border-box; }
+    .inv-card { width: 100%; max-width: 420px; }
+    .logo-row { display: flex; align-items: center; justify-content: center; gap: 8px;
+                font-weight: 700; font-size: 1.1rem; color: var(--gray-900); margin-bottom: 32px; }
+    .logo-row img { width: 32px; height: 32px; border-radius: 8px; }
+    .inv h1 { font-size: 1.7rem; line-height: 1.25; font-weight: 800; letter-spacing: -.02em;
+              color: var(--gray-900); margin: 0 0 20px; text-wrap: balance; }
+    .inv ul { list-style: none; padding: 0; margin: 0 auto 28px; display: inline-block; text-align: left; }
+    .inv li { margin: 8px 0; font-size: 1rem; color: var(--gray-700); }
+    .inv li::before { content: "✓"; color: var(--green); font-weight: 800; margin-right: 10px; }
+    .lbl { margin: 0; color: var(--gray-500); font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; }
+    .code { font-size: 2.3rem; font-weight: 800; letter-spacing: .12em; margin: 6px 0 26px;
+            color: var(--gray-900); user-select: all; }
+    .ibtn { display: block; width: 100%; box-sizing: border-box; margin: 10px 0; padding: 15px 20px;
+            border: 0; border-radius: 14px; font-size: 1.05rem; font-weight: 700; text-decoration: none;
+            cursor: pointer; background: var(--orange); color: #fff; font-family: inherit; }
+    .ibtn:hover { background: var(--orange-dk); }
+    .ibtn.alt { background: var(--gray-100); color: var(--gray-900); }
+    .ibtn.alt:hover { background: var(--gray-200); }
+    .note { color: var(--gray-500); font-size: .85rem; line-height: 1.5; margin-top: 18px; }
+    textarea { width: 100%; font-size: .9rem; margin-top: 10px; box-sizing: border-box; }
+  </style>
+</head>
+<body>
+  <main class="inv">
+    <div class="inv-card">
+      <div class="logo-row"><img src="/logo.png" alt="" /><span>my MealT</span></div>
+      <h1 id="heading">Join me on my MealT</h1>
+      <ul id="benefits">
+        <li>Snap a meal, get calories in seconds</li>
+        <li id="plusLine" hidden>7 days of Plus, free</li>
+        <li>Skip the waitlist</li>
+      </ul>
+      <div id="codeBlock" hidden>
+        <p class="lbl">Your invite code</p>
+        <p class="code" id="code"></p>
+      </div>
+      <div id="ios" hidden>
+        <button class="ibtn" id="go" type="button">Copy invite &amp; get the app</button>
+        <p class="note">We copy your invite so the app can find it after you install. Or type the code when you sign up.</p>
+        <textarea id="fallback" rows="2" readonly hidden></textarea>
+      </div>
+      <div id="desktop" hidden>
+        <a class="ibtn" id="appStore" href="https://apps.apple.com/app/id6786082730">Download on the App Store</a>
+        <a class="ibtn alt" id="playStore" href="https://play.google.com/store/apps/details?id=com.et.mymealt">Get it on Google Play</a>
+        <p class="note" id="desktopNote" hidden>Open this link on your phone, or enter the code when you sign up.</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+  (function () {
+    var API = 'https://tbe-mp-bb0eaace2ee0.herokuapp.com';
+    var APP_STORE = 'https://apps.apple.com/app/id6786082730';
+    var PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.et.mymealt';
+    var UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+    var params = new URLSearchParams(location.search);
+    var rawCode = params.get('code') || params.get('mt_code') || '';
+    var canon = rawCode.toUpperCase().replace(/[^A-Z0-9]/g, '');
+    var code = canon.length >= 4 && canon.length <= 12 ? canon : null;
+    var c = UUID.test(params.get('c') || '') ? params.get('c') : null;
+    var s = UUID.test(params.get('s') || '') ? params.get('s') : null;
+
+    var ua = navigator.userAgent.toLowerCase();
+    var isAndroid = /android/.test(ua);
+    var isIos = /iphone|ipad|ipod/.test(ua) || (/macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+
+    function query() {
+      return 'code=' + encodeURIComponent(code) + (c ? '&c=' + c : '') + (s ? '&s=' + s : '');
+    }
+    function referrer() {
+      return 'mt_code=' + code + (c ? '&c=' + c : '') + (s ? '&s=' + s : '');
+    }
+    function lookup() {
+      // Counts the open (server log) and returns { first_name, plus_on }.
+      return fetch(API + '/invite/info?' + query(), { keepalive: true, credentials: 'omit' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .catch(function () { return null; });
+    }
+
+    if (isAndroid) {
+      if (!code) { location.replace(PLAY_STORE); return; }
+      lookup();
+      location.replace(PLAY_STORE + '&referrer=' + encodeURIComponent(referrer()));
+      return;
+    }
+    if (isIos && !code) { location.replace(APP_STORE); return; }
+
+    if (code) {
+      document.getElementById('code').textContent = code;
+      document.getElementById('codeBlock').hidden = false;
+      lookup().then(function (info) {
+        if (!info) return;
+        if (info.first_name) {
+          var h = info.first_name + ' invited you to my MealT';
+          document.getElementById('heading').textContent = h;
+          document.title = h;
+        }
+        if (info.plus_on) document.getElementById('plusLine').hidden = false;
+      });
+    }
+
+    if (isIos) {
+      var full = location.origin + '/invite?' + query();
+      var go = function () { location.href = APP_STORE; };
+      var fallback = function () {
+        var t = document.getElementById('fallback');
+        t.value = full; t.hidden = false; t.focus(); t.select(); t.setSelectionRange(0, full.length);
+        try { document.execCommand('copy'); } catch (e) {}
+        setTimeout(go, 600);
+      };
+      document.getElementById('go').addEventListener('click', function () {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(full).then(go, fallback);
+        } else { fallback(); }
+      });
+      document.getElementById('ios').hidden = false;
+      return;
+    }
+
+    // Desktop / unknown → both stores.
+    if (code) {
+      document.getElementById('playStore').href = PLAY_STORE + '&referrer=' + encodeURIComponent(referrer());
+      document.getElementById('desktopNote').hidden = false;
+    }
+    document.getElementById('desktop').hidden = false;
+  })();
+  </script>
+</body>
+</html>
