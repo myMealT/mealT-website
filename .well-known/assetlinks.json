@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.et.mymealt",
+      "sha256_cert_fingerprints": [
+        "E4:D2:9A:5B:3C:73:79:3D:13:34:2A:37:33:37:9C:AE:FE:B3:97:1A:84:E1:35:1A:84:83:27:61:4D:6A:2B:D8",
+        "1E:E3:C6:D1:19:81:E8:E1:85:E1:EB:03:7D:7D:43:FE:5D:9E:17:F9:B3:37:DE:07:CF:91:56:D9:13:17:CB:FC"
+      ]
+    }
+  }
+]

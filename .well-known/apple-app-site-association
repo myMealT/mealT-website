@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["VSHK5HMQ2J.com.et.mymealt"],
+        "components": [
+          { "/": "/invite*", "comment": "Invite and add-friend QR links open the app when it is installed" }
+        ],
+        "appID": "VSHK5HMQ2J.com.et.mymealt",
+        "paths": ["/invite*"]
+      }
+    ]
+  }
+}
